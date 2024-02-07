@@ -148,7 +148,7 @@ function getBook(id) {
 const Books = getBooks();
 console.log( Books );
 
-const book = getBook(1);
+const book = getBook(2);
 /* const title = book.title;
 const author = book.author; */
 
@@ -216,3 +216,13 @@ console.log(book.translations.spanish);
 const spanishTraslation = book.translations.spanish || 'Not translated';
 console.log(spanishTraslation);
 
+//Optional chaining
+function getTotalReviewCount(book) {
+  const goodread = book.reviews.goodreads?.reviewsCount ?? 0;
+  const librarything = book.reviews.librarything?.reviewCount ?? 0;
+  return goodread + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+
+//Array map method
