@@ -223,7 +223,7 @@ function getTotalReviewCount(book) {
   return goodread + librarything;
 }
 
-console.log(getTotalReviewCount(book)); */
+console.log(getTotalReviewCount(book)); 
 
 //Array map method
 const books = getBooks();
@@ -242,3 +242,12 @@ const essenstialData = books.map(book => {
 }});
 
 console.log(essenstialData);
+
+
+// Array filter method
+const books = getBooks();
+
+const longBooks = books.filter(book => book.pages > 500).filter(book => book.hasMovieAdaptation);
+console.log(longBooks);
+
+*/
