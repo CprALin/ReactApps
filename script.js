@@ -204,3 +204,15 @@ const year = getYear(book.publicationDate);
 
 console.log(`The year is : ${year}`);
 
+//Short Circuiting 
+console.log(true && 'Some string');
+console.log(false && 'Some string');
+console.log(hasMovieAdaptation && 'This book has a movie');
+// falsy : 0 , '' , null , undefined , false
+console.log(true || 'Some string');
+console.log(false || 'Some string');
+
+console.log(book.translations.spanish);
+const spanishTraslation = book.translations.spanish || 'Not translated';
+console.log(spanishTraslation);
+
