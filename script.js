@@ -179,3 +179,8 @@ console.log(updatedBook);
 // Template Literals
 const summary = `${title} is a book `;
 console.log(summary);
+
+
+//Ternaries - short if/else
+const pagesRange = pages > 1000 ? 'Over a thousand' : 'Less then 1000';
+console.log(`The book has ${pagesRange} pages`);
