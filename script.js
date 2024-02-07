@@ -267,4 +267,25 @@ const sorted = x.slice().sort((a,b) => a-b);
 console.log(sorted);
 
 const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
-console.log(sortedByPages); */
+console.log(sortedByPages); 
+
+//Immutable Arrays
+const books = getBooks();
+
+//Add book object
+const newBook = {
+    id : 6,
+    title : "Marry Potter and the Chamber of Secrets",
+    author : "J. K. Rowling"
+};
+
+const booksAfterAdd = [...books , newBook];
+console.log(booksAfterAdd.length);
+
+// Delete book object 
+const booksAfterDelete = booksAfterAdd.filter(book => book.id !== 3);
+console.log(booksAfterDelete.length);
+
+// Update book object in the array 
+const booksAfterUpdateing = booksAfterDelete.map(book => book.id === 1 ? {...book , pages : 12} : book);
+console.log(booksAfterUpdateing); */
