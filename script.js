@@ -288,4 +288,25 @@ console.log(booksAfterDelete.length);
 
 // Update book object in the array 
 const booksAfterUpdateing = booksAfterDelete.map(book => book.id === 1 ? {...book , pages : 12} : book);
-console.log(booksAfterUpdateing); */
+console.log(booksAfterUpdateing); 
+
+// return a promise (take some time)
+fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(res => res.json())
+    .then((data) => console.log(data));
+
+console.log('string'); */
+
+// await to finish render data
+async function getTodos(){
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+const todos = getTodos();
+console.log(todos);
+
+console.log('string');
