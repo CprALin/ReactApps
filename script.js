@@ -148,17 +148,31 @@ function getBook(id) {
 const Books = getBooks();
 console.log( Books );
 
-const book = getBook(2);
+const book = getBook(1);
 /* const title = book.title;
 const author = book.author; */
 
 const { title , author , pages , genres , hasMovieAdaptation} = book;
 
-console.log({ title , author , pages , genres , hasMovieAdaptation });
+console.log({ title , author , pages , genres , hasMovieAdaptation});
 
 //const primaryGenre = genres[0];
-const [primaryGenre , secondaryGenre] = genres;
+const [primaryGenre , secondaryGenre , ...ortherGenres] = genres;
 
 console.log(primaryGenre , secondaryGenre);
 
+//Rest Operator '...' - added at the end of array
+console.log(ortherGenres);
+
+//Spred Operator '...' - added at the begining of array
+const newGenres = [...genres , 'epic fantasy'];
+console.log(newGenres);
+
+const updatedBook = {
+    ...book , 
+    //adding a new property
+    moviePublicationDate : '2001-12-19'
+};
+
+console.log(updatedBook);
 
