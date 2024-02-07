@@ -47,6 +47,44 @@ const pizzaData = [
 ];
   
 
+function Header(){
+    return(
+        <h1>React Pizza</h1>
+    );
+}
+
+function Menu(){
+    return(
+      <div> 
+        <h2>Our menu</h2>
+        <Pizza />
+      </div>   
+    );
+}
+
+function Footer(){
+    const hour = new Date().getHours();
+    const openHour = 12;
+    const closeHour = 22;
+    const isOpen = hour >= openHour && hour <= closeHour;
+    console.log(isOpen);
+
+    /* if(hour >= openHour && hour <= closeHour) 
+    {
+        alert("We're currently open!")
+    }else{
+        alert("Sorry we're closed.")
+    } */
+
+    return(
+        <footer>
+            {new Date().toLocaleTimeString()}.We're currently open!
+        </footer>
+        
+        //React.createElement('footer', null, "We're currently open!")
+    );
+}
+
 function Pizza(){
     return(
        <div>
@@ -60,8 +98,9 @@ function Pizza(){
 function App(){
     return(
       <div>
-        <h1>Hello React !</h1>
-        <Pizza />
+        <Header />
+        <Menu />
+        <Footer />
       </div>
     );  
 }
