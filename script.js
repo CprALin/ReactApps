@@ -152,8 +152,13 @@ const book = getBook(2);
 /* const title = book.title;
 const author = book.author; */
 
-const { title , author } = book;
+const { title , author , pages , genres , hasMovieAdaptation} = book;
 
-console.log(title , author);
+console.log({ title , author , pages , genres , hasMovieAdaptation });
+
+//const primaryGenre = genres[0];
+const [primaryGenre , secondaryGenre] = genres;
+
+console.log(primaryGenre , secondaryGenre);
 
 
