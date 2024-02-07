@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import './index.css';
 
 const pizzaData = [
     {
@@ -48,17 +49,32 @@ const pizzaData = [
   
 
 function Header(){
+    //const style = {color : "red" , fontSize : "35px" , textTransform : "uppercase"}
+ 
     return(
-        <h1>React Pizza</h1>
+       <header className="header container">
+            <h1>React Pizza</h1>
+       </header> 
     );
 }
 
 function Menu(){
     return(
-      <div> 
+      <main className="menu"> 
         <h2>Our menu</h2>
-        <Pizza />
-      </div>   
+        <Pizza 
+            name='Pizza Prosciutto' 
+            ingredients='Tomato, mozarella, ham, aragula, and burrata cheese' 
+            photoName='pizzas/prosciutto.jpg' 
+            price={10}
+        />
+        <Pizza 
+            name='Pizza Funghi' 
+            ingredients='Tomato, mozarella, onion , mushroom and burrata cheese' 
+            photoName='pizzas/funghi.jpg' 
+            price={15} 
+        />
+      </main>   
     );
 }
 
@@ -67,7 +83,7 @@ function Footer(){
     const openHour = 12;
     const closeHour = 22;
     const isOpen = hour >= openHour && hour <= closeHour;
-    console.log(isOpen);
+    
 
     /* if(hour >= openHour && hour <= closeHour) 
     {
@@ -77,7 +93,7 @@ function Footer(){
     } */
 
     return(
-        <footer>
+        <footer className="footer">
             {new Date().toLocaleTimeString()}.We're currently open!
         </footer>
         
@@ -85,19 +101,22 @@ function Footer(){
     );
 }
 
-function Pizza(){
+function Pizza(props){
     return(
-       <div>
-          <img src="pizzas/prosciutto.jpg" alt="Pizza Procitto"/>
-          <h2>Pizza Prosciutto</h2>
-          <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
+       <div className="pizza">
+          <img src={props.photoName} alt={props.name}/>
+          <div>
+            <h3>{props.name}</h3>
+            <p>{props.ingredients}</p>
+            <span>{props.price}</span>
+          </div>
        </div> 
     );
 }
 
 function App(){
     return(
-      <div>
+      <div className="container">
         <Header />
         <Menu />
         <Footer />
