@@ -176,3 +176,6 @@ const updatedBook = {
 
 console.log(updatedBook);
 
+// Template Literals
+const summary = `${title} is a book `;
+console.log(summary);
