@@ -144,13 +144,13 @@ function getBook(id) {
 }
 
 
-// Destructuring 
+/* // Destructuring 
 const Books = getBooks();
 console.log( Books );
 
 const book = getBook(2);
-/* const title = book.title;
-const author = book.author; */
+ const title = book.title;
+const author = book.author; 
 
 const { title , author , pages , genres , hasMovieAdaptation} = book;
 
@@ -187,13 +187,13 @@ console.log(`The book has ${pagesRange} pages`);
 
 
 //Arrow functions - usefull for one line funcitons
-/* 
+
 --normal function --
 function getYear(str){
     return str.split('-')[0];
 }; 
 const year = getYear(book.publicationDate);
-*/
+
 
 //arrow function
 const getYear = (str) => {
@@ -223,6 +223,22 @@ function getTotalReviewCount(book) {
   return goodread + librarything;
 }
 
-console.log(getTotalReviewCount(book));
+console.log(getTotalReviewCount(book)); */
 
 //Array map method
+const books = getBooks();
+console.log(books);
+
+const x = [1,2,3,4,5].map(el => el * 2);
+console.log(x);
+
+const titles = books.map(book => book.title);
+console.log(titles);
+
+const essenstialData = books.map(book => { 
+    return { 
+        title : book.title , 
+        author : book.author 
+}});
+
+console.log(essenstialData);
