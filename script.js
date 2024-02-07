@@ -184,3 +184,23 @@ console.log(summary);
 //Ternaries - short if/else
 const pagesRange = pages > 1000 ? 'Over a thousand' : 'Less then 1000';
 console.log(`The book has ${pagesRange} pages`);
+
+
+//Arrow functions - usefull for one line funcitons
+/* 
+--normal function --
+function getYear(str){
+    return str.split('-')[0];
+}; 
+const year = getYear(book.publicationDate);
+*/
+
+//arrow function
+const getYear = (str) => {
+    return str.split('-')[0]
+};
+
+const year = getYear(book.publicationDate);
+
+console.log(`The year is : ${year}`);
+
