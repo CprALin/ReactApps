@@ -256,6 +256,15 @@ console.log(longBooks);
 const books = getBooks();
 
 const pagesAllBooks = books.reduce((acc , book) => acc + book.pages , 0);
-console.log(pagesAllBooks); */
+console.log(pagesAllBooks); 
 
 //Array sort method
+const books = getBooks();
+
+const x = [3,2,4,5,2,7];
+const sorted = x.slice().sort((a,b) => a-b);
+
+console.log(sorted);
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+console.log(sortedByPages); */
