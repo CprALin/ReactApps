@@ -52,7 +52,7 @@ function Header(){
     //const style = {color : "red" , fontSize : "35px" , textTransform : "uppercase"}
  
     return(
-       <header className="header container">
+       <header className="header">
             <h1>React Pizza</h1>
        </header> 
     );
@@ -60,6 +60,7 @@ function Header(){
 
 function Menu(){
     const pizzas = pizzaData;
+    //const pizzas = [];
     const numPizzas = pizzas.length;
 
     return(
@@ -67,9 +68,13 @@ function Menu(){
         <h2>Our menu</h2>
 
         {numPizzas > 0 ? (
+          <>
+            <p>Authentic Italian cuisine. All from our stone oven , all organic , all delicious.</p>
+
             <ul className="pizzas">
                 {pizzaData.map(pizza => <Pizza pizzaObject={pizza} key={pizza.name}/>)}
             </ul>
+          </>  
         ):(<p>We're still working on our menu. Please come back later :) </p>)}
 
       {/*<Pizza 
