@@ -1,5 +1,12 @@
 body {
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem;
+  color: #fff;
+  font-size: larger;
+  cursor: default;
+  background-color: #2a5a67;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,36 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+   display: flex;
+   padding: 2rem 2rem;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   width: auto;
+   height: auto;
+   background-color: #4bacc7;
+   box-shadow: 5px 6px 4px 4px rgb(83, 135, 146);
+}
+
+.steps{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.steps-btn{
+   cursor: pointer;
+   font-size: larger;
+   border: none;
+   border-radius: 100%;
+   margin: 5px;
+   width: 2rem;
+   height: 2rem;
+   color: #fff;
+   background-color: #2a5a67;
 }
