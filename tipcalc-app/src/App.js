@@ -22,7 +22,7 @@ function TipCalculator(){
     }
 
     return(
-        <div>
+        <div className="App">
             <BillInput bill={bill} onSetBill={setBill}/>
             <SelectPercentage prtg={prtg1} onSelect={setPrtg1}>How did you like the service?</SelectPercentage>
             <SelectPercentage prtg={prtg2} onSelect={setPrtg2}>How did your friend like the service ?</SelectPercentage>
@@ -40,7 +40,7 @@ function TipCalculator(){
 
 function BillInput({bill , onSetBill}){
     return(
-      <div>
+      <div className="billinput">
          <label>How much was the bill ?</label>
          <input type="text" placeholder="Bill value" value={bill} onChange={e => onSetBill(Number(e.target.value))}/> 
        </div> 
@@ -49,7 +49,7 @@ function BillInput({bill , onSetBill}){
 
 function SelectPercentage({children , prtg , onSelect}){
     return(
-        <div>
+        <div className="percentage">
             <label>{children}</label>
             <select value={prtg} onChange={e => onSelect(Number(e.target.value))}>
                 <option value='0'>Dissatisfied (0%)</option>
