@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+const faqs = [
+  {
+    title : "What is object-oriented programming (OOP) ?",
+    text : "Object-oriented programming (OOP) is a programming paradigm based on the concept of objects, which can be defined as entities containing data, knowing their state, and behavior, and can interact with each other. "
+  },
+  {
+    title : "What is an interpreted programming language ?",
+    text : "An interpreted programming language is a type of programming language for which most of its implementations execute instructions directly, without the need for compilation."
+  },
+  {
+    title : " What is the difference between synchronous and asynchronous programming ?",
+    text : "Synchronous programming executes code sequentially, one instruction at a time, waiting for each operation to complete before moving to the next. Asynchronous programming allows multiple operations to be performed concurrently, with the ability to continue executing code while waiting for certain operations to complete."
+  }
+]
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Accordion data={faqs}/>
     </div>
   );
+}
+
+function Accordion({data}){
+  return(
+     <div className="accordion">
+        {data.map((el,i) => <AccordionItem title={el.title} text={el.text} num={i} key={i}/>)}
+     </div>
+  );
+}
+
+function AccordionItem({num , title , text}){
+    const [isOpen , setIsOpen] = useState(false);
+
+    function handleToggle(){
+        setIsOpen(isOpen => !isOpen);
+    } 
+
+    return(
+        <div className={`item ${isOpen ? 'open' : ''}`} onClick={handleToggle}>
+            <p className="number">{num < 9 ? `0${num + 1}` : num+1}</p>
+            <p className="title">{title}</p>
+            <p className="icon">{isOpen ? '-' : '+'}</p>
+        
+            {isOpen && (
+                <div className="content-box">
+                   {text}
+                </div>
+            )} 
+        </div>
+    );
 }
 
 export default App;
