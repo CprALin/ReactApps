@@ -30,7 +30,7 @@ function Accordion({data}){
   return(
      <div className="accordion">
         {data.map((el,i) => 
-            <AccordionItem currOpen={currOpen} onOpen={setCurrOpen} title={el.title} num={i} key={i}>
+            <AccordionItem currOpen={currOpen} onOpen={setCurrOpen} title={el.title} num={i} key={el.title}>
                 {el.text}
             </AccordionItem>)}
      </div>
