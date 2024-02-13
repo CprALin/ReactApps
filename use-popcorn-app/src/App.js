@@ -50,16 +50,43 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = 'e47d7276';
+const KEY = "e47d7276";
 
 export default function App() {
     const [movies, setMovies] = useState(tempMovieData);
     const [watched, setWatched] = useState(tempWatchedData);
+    const [isLoading , setIsLoading] = useState(false);
+    const [error , setError] = useState('');
+    const query = "aquaman"
 
     useEffect(function() {
-      fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
-       .then((res) =>  res.json())
-       .then((data) => setMovies(data.Search));
+  
+      async function fetchMovies(){
+      try
+      { 
+        setIsLoading(true);
+        const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`)
+
+        if(!res.ok)
+        {
+          throw new Error('Something went wrong with fetching movies')
+        }
+
+        const data = await res.json()
+
+        if(data.Response === 'False')
+        {
+          throw new Error('Movie not found')
+        }
+
+        setMovies(data.Search)
+        setIsLoading(false);
+      }catch(err){
+         console.error(err.message);
+         setError(err.message);
+      }
+      }
+      fetchMovies();
     },[]);
     
 
@@ -74,7 +101,10 @@ export default function App() {
           
           {/* Composition \/ */}
           <Box>
-            <MovieList movies={movies}/>
+            {/* isLoading ? <Loader /> : <MovieList movies={movies}/> */}
+            {isLoading && <Loader />}
+            {!isLoading && !error && <MovieList movies={movies}/> }
+            {error && <ErrorMessage message={error} />}
           </Box>
           <Box>
             <>
@@ -85,6 +115,20 @@ export default function App() {
         </Main>
       </>
     );
+}
+
+function Loader(){
+    return(
+        <p className="loader">Loading...</p>
+    );
+}
+
+function ErrorMessage({message}){
+   return(
+      <p className="error">
+         <span>⛔</span> {message}
+      </p>
+   );
 }
 
 
@@ -124,7 +168,7 @@ function Logo(){
 function CountResults({movies}){
     return(
       <p className="num-results">
-        Found <strong></strong> results
+        Found <strong>{movies.length}</strong> results
       </p>
     );
 }
