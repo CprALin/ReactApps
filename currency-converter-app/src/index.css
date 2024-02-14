@@ -1,4 +1,9 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaec71;
+  color: #fff;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +15,46 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App{
+   display: flex;
+   border-radius: 20%;
+   box-shadow: 2px 8px 8px 6px rgba(147, 160, 63, 0.579);
+   padding: 30px 30px;
+   height: 20em;
+   width: 50em;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 6rem;
+   background-color: #aba931;
+
+   @media(max-width : 1024px)
+   {
+     height: auto;
+     width: auto;
+   }
+}
+input{
+  border-color: #eaec71;
+  font-size: 1em;
+  background: transparent;
+  color: #fff;
+}
+
+.selectDiv .select{
+     border: 0;
+     margin: 10px;
+     background: transparent;
+     color: #fff;
+     font-size: 1.2em;
+}
+
+select option {
+   background: #aba931;
+}
+
+p{
+  font-size: 1.5em;
 }
